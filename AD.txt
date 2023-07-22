@@ -1,0 +1,31 @@
+1)how to install IQ Service and what is the use?
+  It like bridge between active directory and SailPoint. Developed by .net and released by 
+Microsoft. Default port of IQ Service is 5050. We use to aggregate data from active directory 
+to SailPoint and its helpful in provisioning. 
+Make sure IQ Service install in active directory 
+Download IQ service from SailPoint
+>>extract it into active directory folder>>open command prompt >give the folder path >>iq 
+service.exe>>that will automatically download
+2)Why we use IQ service? 
+
+      IQ service provided by SailPoint, active directory is windows server 
+if you want interact with windows to another windows server. Observe we have 2 different 
+windows system, make sure there is one API interacting here as IQ service.developed by 
+.net api with integrate with active directory 
+
+3)What are all challenges you faced in configuration of Active directory.
+
+AD user and group available .
+Make sure we have to install IQ service to active director this is 3rd party tools. 
+Test connection failed. Ad server was not running. 
+I research in SailPoint community I got to know that IQ service is not running into active 
+directory server.i started IQ service and click on test connection I was working then 
+Make sure IQ service version and SailPoint version should match. 
+
+4). what is the use of NEWAC_PARENT? in which scenario we can use ?
+
+   disable the user we can move to separate DM to active directory. we can use in provisioning  plan 
+if user leave, transfer, termination we can use this attribute.
+ attributes: firstname, lastName, email, status. 
+    Special attribute is newac_patent,means we can disable a user and also move to different UI 
+this scenario we use mewac_parent

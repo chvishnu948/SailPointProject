@@ -1,0 +1,41 @@
+1) LCE event? joiner, leaver, rehire.
+
+   I have built custom workflow for joiner event.When user coming from HR alternative source, based on employee type we assigning birthright rule. 
+From that birthright rule Active Directory account will be assigning to the user. 
+
+Leaver: when user leave, we have to remove from the Application:
+Rehire workflow: I my project there is 2 condition.
+     A). If user rehire within30 days then we used to provision all entitlement and roles.
+     B) if hire after 30 days: mean that user is joiner. Where have act as joiner that case provision AD account 
+          ,jdbc account, dap account.
+
+2).what types of lce (life cycle event events configured in last project or last company
+
+ Joiner event>>rehire Event>>mover event>>leaver, Termination event(normal and emergency 
+termination )
+
+3) What is native change type of life cycle event.
+
+   if some change happen directly on target system, and we want to use some workflow to be 
+triggered in SailPoint for that, we need to enable nativeCahange detection and configure native 
+change event in lifecycle event
+
+4) What is rule based life cycle event. How it is used?
+   if an event need to be triggered base on some condition every time, then Rule based life cycle 
+ even
+
+17) How can we trigger lifecycle events. What is the need of Native change Detection Event.
+
+  Cycle Event: trigger the life cycle event for that we will run the "refresh identity qube task" With the check box of "process Events".
+Native change detection : When identity Iq performs native change detection during aggregation process. 
+Based on operations : create, modify, delete
+The operations related to the entitlement or user difined attributes. 
+
+18). event type is in LCE event?
+
+Create: if any user created in sailpoint this workflow will be trigger .
+Manager: If any identity manger form this manager to other manger. If any manager change automectily 
+this will trigger
+Attibute change: say inactive attribute change false to tru. That will automecticly execute this workflow.
+Rule: I run account aggregation , next time I run again aggregation . 1st aggregartion identity we called 
+previous idenity . when we run 2nd time we called 2nd identiy

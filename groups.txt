@@ -1,0 +1,27 @@
+1)Diffrence between work groups and populations?
+
+Groups — used to track accessibility, activity, and monitored risk by group membership. Risk 
+scores aredisplayed on the Home Page. Groups are defined automatically by values assigned to identity 
+attributes.
+Populations — are query based groups created from the results of searches run from the 
+Identity Search page. Searches that result in interesting populations of identities can, optionally, be saved as 
+populations for reuse within IdentityIQ.
+
+Populations are similar to groups, except that they are driven off of multiple search criteria
+whereas Groups are statically defined based off a single Identity attribute.
+These group themselves are not dynamic. You must run the Refresh Groups task
+periodically to update them. Between runs of Refresh Groups, the groups themselves
+remain static, but the membership is always based off a dynamic query.
+
+Note: Populations are dynamic queries, so every time you view a population, you
+are viewing its current members at that point in time
+
+2)difference between groups and workgroups.
+
+Workgroups: it like a box, we can randomly add random user to workgroup like create a group of users. 
+Group of people from job title like developer,QA 
+associate sets of Identities to facilitate sharing of IdentityIQ responsibilities; responsibilities may include 
+Certification reviews and Application or Entitlement ownership, among others.
+Groups: based on attribute we can create group like location USA
+sets of Identities created based on the value of a single Identity Attribute; used as a filter on the set of 
+Identities included in atask, Certification, or report

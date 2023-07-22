@@ -1,0 +1,43 @@
+1). what is the use of policy violation?
+ Say user working as QA , user should not get developer access. If qa request developer 
+access. This is policy violation.
+
+2)how are you going to manage Policy violations ?
+Policy violations can be managed through certifications or the policy violations page
+You can also configure violations to trigger a business process to send email notifications and 
+generate work items so that policy violations can be managed immediately upon detection
+
+3) Examples of Policies ?
+Separation of duties policy:-
+a separation of duties policy can prohibit one identity from requesting and approving purchase 
+orders.
+Activity policy:-
+      An activity policy can prohibit an identity with the Human Resource role from
+updating the payroll application even though the identity has view access to the application.
+Rule violations for a policy:-
+      Rule violations for a policy, when detected, are stored in the identity cube. These violations also 
+appear on identity score cards and enable you to identify high-risk employees and take appropriate action.
+
+4) How many policies and describe them ?
+  1.Custom Policies:
+are any policies that were created outside of IdentityIQ to meet special needs of your
+enterprise. You cannot create a custom policy from inside the product. Use the Edit Policy page 
+to view
+information about a custom policy, but changes made here will not affect the performance of the 
+policy
+  2.SOD
+separation of duties policies ensure that identities are not assigned conflicting roles
+  3.Entitlement SOD
+separation of dutiesm policies ensure that identities are not assigned conflicting
+entitlements
+  4.Activity
+ensure that users are not accessing sensitive application if they should not or when they
+should not.
+  5.Account
+ensure that an identity does not have multiple accounts on an application
+  6. Risk
+ensure that users are not exceeding the maximum risk threshold set for your enterprise.
+  7.Advanced
+custom policies created using match lists, filters, scripts, rules, or populations.
+To access Policies
+230) how are you handling poli
