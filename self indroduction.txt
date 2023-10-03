@@ -32,3 +32,5 @@ Creation: if user create very first time this rule will trigger like change pass
 manager correlation: correlate with manager configuration though rule 
 managed entitlement customization: modify the entitlement , we can add the entitlement owner and 
 description
+
+vishnu vardhan reddy
