@@ -1,0 +1,205 @@
+connector
+Application
+
+Application and Connector are linked to each other in one to one relationship.
+
+Connector (Custom cnnector development)
+
+Policy :- rules to maintain segregation of duties
+	
+SOD
+
+Complaince :- these are set of rules which a compay needed to follow when ever any action happens in the firm
+
+Sailpoint identityIq --------------------------------------------------------------------------------->Target system(AD)
+                     --------------------------------------------------------------------------------->Target system(Exchange)
+                     --------------------------------------------------------------------------------->Target system(Oracle/JDBC/Flatefile/HR Source)
+
+===========================      ============================
+----Governar Complaince---       life cycle manage component-----------> Proviging Module
+==========================       =============================
+
+
+
+partitioned aggregation:- its aggregation fast to bring all data from target system
+ex:-4 diff identityiq installed in my company
+    each instance of identityiq can process 25k accounts
+
+
+delta aggregation:- Delta aggregation means try to bring only those accounts which has changed on your target system.
+
+till 6.3 version only two object type were there
+1) Account
+2) Group -Entitlemet in Identityiq
+
+from  6.4 version multi object consept / group consept
+1) Account
+2) Role
+3) Profile
+4)Privaliges
+
+
+Entitlement:-  Access of the target system which can be assinged to end user.
+
+Department is something which we can gran a new user. It meas department is kind of access in myimplementence.
+
+All access of target system should come into identityiq in from of enetitlemet and it sould be populate in entittlement catolog.
+
+To bring all enetitlemet / access from target system , the job which is run called account group aggregation.
+Application onboarding:-
+------------------------
+  -->Account aggregation-->the terms which is relates to bringing all accounts from target system into identityiq repository
+
+By default 80 targeted to be connected using out of box connectors provided by sailpointiq	
+
+Q)Entitlement :- It is access to target system and its assinged to end users.
+
+Q2)what is correlation :-To find an identity for an account based on some attribute of account and identity is called correlation
+
+Task:-2
+------
+Q1)what is connector?
+Q2)what is application onboarding?
+Q3)
+Q4)
+Task:-3
+-------
+Q1)Diff b/w identity and account?
+Q2)What is authoretive source?
+Q3)what is managed attributes?
+Q4)what does promote managed attribute task to do?
+Q5)what is entitlement?what is entitlement catalog?
+Q6)what is relationship b/w entitlement and target system?
+Q7)what diff b/w account aggregation and group aggregation?
+
+
+ customizationRule:-Its also call resours object. when we bring the accounts from target system 
+                     its converted data in resource object here we can customized account like static or dynamic both are we can do
+					 ex:-static--> object.put("empType", "contractor");
+					                 reurn object;
+						 dynamic-->we getting firstname and lastname for create fullname
+						           object.put("fullName","fullName');
+					               reurn object;
+								  
+								  
+          Build Map rule                                   customization
+	
+1)It is a connector rule  .                            1) aggregation rule.
+2)tis rule can do whatever customization rule         2)this rule can not do what things build map rule can do.
+  can do.
+3)connection to the target system is exposed          3)You can not connect to the target system using customization Rule.
+   in build map rule.
+   
+Provisioning in sailpoint:-
+---------------------------
+CRUD - Create, update(modify,update,password chage,unlock,disable,enable) and delete
+
+Flat file (HR connectors) - generally does not provide provisioing
+Not all connector provides provisioning feature.
+
+Application xml from debug page,(FeatureString) - Provision.
+
+Provisioning Engine - create provisioningPlan - which is in turn is sent to respective connector  ---
+--- connector reads to provisioingplane ---- create a script /query out of the content present in plan 
+--- the query or the script create by connector is run on target system using APIs
+--- Returned result is sent back in to iiq server
+
+Structure of a simple provisioning plan 
+either plan stored in form of json or in form of xml
+
+
+ProvisioningPlan
+AccountRequest 
+AttributeRequest
+
+Sailpoint context is a accesble in rule using a variable is calledcontext.
+
+Authentication - proove who are you.
+authorization mechanism - bassicaly permision given to restric access of a user on a particular system.
+
+roles --> bassicaly permision given to restric access of a user on a particular target system.
+capabilities --> bassicaly permision given to restric access of a user on perticular user interface of identityIq.
+scope --> bassicaly permision given to restric access of a user on a perticular objects in sailpoint.
+
+1)Role in sailpoint--(what is entitlement) Target system access which is pulled in sailpoint using account group aggregation task.
+                     To bundle one or more entitlement in single object is called role.
+					 
+Role is sailpoint
+Type
+1)Entitlement--can be assined to end user
+2)IT   --role --can't be assined to end user
+3)Business--role --can be assined to end user
+4)Organization--role--can't be assined to end user
+
+Group in sailpoint -- collection of identity.
+
+groups -> collection of identity based on groupfactory.
+population--> collection identity based on some search result. The attribute which is result in population are either group factory or any searchble attribute.
+workgroup--> manual collection of identity. 
+
+
+policy --policy are set of rules which guranty SOD in firm.
+
+SOD -- Seggrigation Of Duties(if a person is authorized to do development job he must do development job only should not do managerial job ).
+
+vishnu --developer
+         Qa
+		 
+Developer can not have a QA access - policy of firm.
+
+violance -- when ever the policy not met.it rises a conflict of access its turned as a policy violance.
+
+resolution of a policy violance
+
+1)manually remove  conflict of access.
+2)cerify the identity which as conflict of access.
+3)Allow the violance for certian period of time.
+
+policy checks are done two ways
+1) preactive check policy -(LCM provisioning workflow
+2) reactive policy check (Refresh identity cube task)
+
+
+1)Role --is an enity which is strictly associated with identityiq .Role is a grouping of enetitlemet.
+2)Entitlement -- are mainly enties which associated with target system . Entitlement can be a group of target system permisions.
+
+Type of policy:-
+ 
+
+account violation:- 
+jdbc db system.
+
+vishnu(read access on employee_salary_table).
+hacker
+vishnu(write access on employee_salary_table).
+If there are two accounts of same identity on same target system then raise a violance.
+
+
+Risk:- The level of vulnarablity associate with each identity.(entity)
+
+
+vishnu
+access to read file 
+
+read access on personal details file--risk level 0.
+read access on finacial details file --risk level 800.
+
+workflow - sequence of steps
+
+workflow are sequence of steps which are followed in case some events happends in sailpoint.
+ 
+events - a person joining the firm. a person leaving from firm,Deportment of a person change, clicking on some quicklink presnt in sailpoint. 
+
+Java class                                                          workflow
+    Functions                                                            steps
+	  ---local variable                                                    ---Arguments/local variable
+	        member variable/global variable                                          process variable/global variable
+																			  
+	       
+
+
+
+
+		 
+
+					 
