@@ -1,0 +1,34 @@
+This is basha in my hands have 3.7 years of experience in IT indusry in sailpointiq i have 3.3 years, 
+I'm working as a software engineer in genex technology pvt lmt.
+In my experience i'm worked in many moduls like Application onboarding,developing rule,workflows and custom workflows
+ 1)onboarding different type of appl like delemeted file,JDBC,ACtive Directory,LDAP
+2)And Developing connector rules,aggrigation rules and custom rules.
+3)I'm  implemented complaince moduls like policy,risk and certifications.
+4)in certifications worked on exclusion ,pre-delegation  and sign approver rules
+5)impliment RBAC like business,IT ,Entitlement in mining platform
+6)i configured
+6)developing provisioning,LCM,Accounts,Groups,Standard,custom,workflows and lifecyel events
+
+Application onboarding:-
+
+first fill details then depends on application type we give settings and schema in conifiguration  | managed---entitlement catalog
+if any attribute have multi values we do merging                                                   | entitlement ---visible entitlemet in identity cube for user          
+next set identity mapping                                                                          | multi vauled-----exp:-it is show milti entitle in roles
+run account aggrigation
+then do refresh identity cube
+
+Connector Rules:-
+Pre-iterator: it will trigger before proccessing the data. By using this rule we can validate filr or we can change the file path or file format.
+build map: if we want to modify any data, we use build map and its return updated map. 
+merge map: this rule will marge with multiple maps related identities and return the updated map 
+map to resource: convert our map to resource object
+post iterator: sending email to application owner to notify that task is done or something .
+
+Aggregation Rules:-
+
+Customization: we can modify resource object. Every account aggregation will trigger
+Correlation: linking a account/ link to identity
+Creation: if user create very first time this rule will trigger like change password
+manager correlation: correlate with manager configuration though rule 
+managed entitlement customization: modify the entitlement , we can add the entitlement owner and 
+description
